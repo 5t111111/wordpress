@@ -39,7 +39,7 @@ WORKDIR /var/www/html
 ENV WORDPRESS_VERSION 3.9.2
 
 # upstream tarballs include ./wordpress/ so this gives us /usr/src/wordpress
-RUN curl -SL http://wordpress.org/wordpress-$WORDPRESS_VERSION.tar.gz | tar -xzC /usr/src/
+RUN curl -SL http://ja.wordpress.org/wordpress-$WORDPRESS_VERSION-ja.tar.gz | tar -xzC /usr/src/
 
 COPY docker-apache.conf /etc/apache2/sites-available/wordpress
 RUN a2dissite 000-default && a2ensite wordpress
