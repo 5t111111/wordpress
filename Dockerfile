@@ -36,10 +36,11 @@ RUN rm -rf /var/www/html && mkdir /var/www/html
 VOLUME /var/www/html
 WORKDIR /var/www/html
 
-ENV WORDPRESS_VERSION 3.9.2
+ENV WORDPRESS_VERSION 4.0.0
+ENV WORDPRESS_UPSTREAM_VERSION 4.0
 
 # upstream tarballs include ./wordpress/ so this gives us /usr/src/wordpress
-RUN curl -SL http://ja.wordpress.org/wordpress-$WORDPRESS_VERSION-ja.tar.gz | tar -xzC /usr/src/
+RUN curl -SL http://ja.wordpress.org/wordpress-${WORDPRESS_UPSTREAM_VERSION}-ja.tar.gz | tar -xzC /usr/src/
 
 COPY docker-apache.conf /etc/apache2/sites-available/wordpress
 RUN a2dissite 000-default && a2ensite wordpress
